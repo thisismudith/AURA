@@ -1,5 +1,6 @@
 "use client";
 
+import '@/styles/globals.css';
 import React, { useState } from "react";
 import { CommonButton } from "@/compenents/common_button";
 import { login, register } from "@/database/users";
@@ -59,83 +60,97 @@ export default function Auth(){
         }
       };    
 
-      const { w, h, t } = useResponsive();
+      const { w, h, t } = useResponsive(),
+      styles: { [key: string]: React.CSSProperties } = {
+        container: {
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+        },
+        card: {
+          width: `${w(420)}px`,
+          height: `fitContent`,
+          // background: "linear-gradient(145deg, #141319, #18161e)",
+          // boxShadow: "19px 19px 20px #0e0e12, -19px -19px 20px #1e1c26",
+          background: "linear-gradient(145deg, #1d1920, #221e27)",
+          boxShadow: "20px 20px 22px #100e12, -20px -20px 22px #100e12",
+          borderRadius: "20px",
+          padding: "20px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        },
+        title: { 
+          ...CommonText.header4Bold,
+          color: "var(--white-500)",
+          height: "fitContent",
+        },
+        subtitle: {
+          ...CommonText.body2Regular,
+          color: "var(--gray-500)",
+          marginBottom: "24px",
+        },
+        inputGroup: {
+          width: "95%",
+          marginBottom: "16px",
+        },
+        buttonGroup: {
+          width: "95%",
+          marginTop: "8px",
+        },
+        footer: {
+          marginTop: "24px",
+          textAlign: "center",
+        },
+        footerText: {
+            ...CommonText.body2Regular,
+          color: "var(--gray-500)",
+        },
+        forgotText: {
+          ...CommonText.body2Regular,
+          color: "var(--color--option-2)",
+          textAlign: "right",
+        },
+        footerLink: { 
+          color: "var(--color--option-2)",
+          fontWeight: 500,
+        },
+      };
 
-        const styles: { [key: string]: React.CSSProperties } = {
-            container: {
-              width: "100%",
-              height: "100vh",
-              padding: "40px",
-              backgroundColor: "var(--dark-500)",
-              border: "1px solid red",
-            },
-            card: {
-              margin: "auto",
-              width: `${w(440)}px`,
-              height: `${h(480)}px`,
-              backgroundColor: "var(--white-500)",
-              borderRadius: "20px",
-              boxShadow: "0px 54.999996185302734px 109.99999237060547px rgba(0, 0, 0, 0.4), 0px 54.999996185302734px 109.99999237060547px rgba(0, 0, 0, 0.5)",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              alignContent: "center",
-            },
-            title: { 
-              ...CommonText.header4Bold,
-              color: "var(--dark-500)",
-              marginBottom: "8px",
-            },
-            subtitle: {
-              ...CommonText.body2Regular,
-              color: "var(--gray-500)",
-              marginBottom: "24px",
-            },
-            inputGroup: {
-              marginBottom: "16px",
-            },
-            buttonGroup: {
-              marginTop: "8px",
-            },
-            footer: {
-              marginTop: "24px",
-              textAlign: "center",
-            },
-            footerText: {
-                ...CommonText.body2Regular,
-              color: "#555555",
-            },
-            footerLink: {
-              color: "#007bff",
-              textDecoration: "none",
-              fontWeight: 500,
-            },
-        };
 
-    return (
-        <div style={styles.container}>
+      return (
+        <div style={styles.container} className="min-h-screen">
             <div style={styles.card}>
                 <h2 style={styles.title}>Login with Email</h2>
                 <p style={styles.subtitle}>Please enter your credentials to continue.</p>
 
                 <div style={styles.inputGroup}>
-                    <CommonTextField placeholder="Email" type="email" value={formData.email} onChange={(val) => handleChange("email", val)} />
+                    <CommonTextField textColor="var(--dark-90)" border="2px solid var(--primary-500)" placeholder="Email" type="email" value={formData.email} onChange={(val) => handleChange("email", val)} />
                 </div>
-                <div style={styles.inputGroup}>
-                    <CommonTextField placeholder="Password" type="password" value={formData.password} onChange={(val) => handleChange("password", val)} />
+                <div style={ {...styles.inputGroup, marginBottom: "4px"}}>
+                    <CommonTextField textColor="var(--dark-90)" border="2px solid var(--primary-500)" placeholder="Password" type="password" value={formData.password} onChange={(val) => handleChange("password", val)} />
+                </div>
+                
+                <div style={{marginBottom: "16px", width: "95%"}}>
+                  <p style={styles.forgotText}>
+                      <span style={styles.forgotText} className="hoverUnderline">Forgot Password</span>?
+                  </p>
                 </div>
 
                 <div style={styles.buttonGroup}>
                     <CommonButton text="Login" onClick={() => handleSubmit(true)} />
                 </div>
 
+
                 <div style={styles.footer}>
-                <p style={styles.footerText}>
-                    Don't have an account?{" "}
-                    <a href="#" style={styles.footerLink}>
-                    Sign up
-                    </a>
-                </p>
+                  <p style={styles.footerText}>
+                      Don't have an account?{" "}
+                      <span className="hoverUnderline" style={styles.footerLink}>
+                      Sign up
+                      </span>
+                  </p>
                 </div>
             </div>
         </div>

@@ -1,0 +1,152 @@
+/* [next]/internal/font/google/geist_e531dabc.module.css [app-client] (css) */
+@font-face {
+  font-family: Geist;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../media/gyByhwUxId8gMEwSGFWNOITddY4-s.81df3a5b.woff2") format("woff2");
+  unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: Geist;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../media/gyByhwUxId8gMEwcGFWNOITd-s.p.da1ebef7.woff2") format("woff2");
+  unicode-range: U+??, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Geist Fallback;
+  src: local(Arial);
+  ascent-override: 95.94%;
+  descent-override: 28.16%;
+  line-gap-override: 0.0%;
+  size-adjust: 104.76%;
+}
+
+.geist_e531dabc-module__QGiZLq__className {
+  font-family: Geist, Geist Fallback;
+  font-style: normal;
+}
+
+.geist_e531dabc-module__QGiZLq__variable {
+  --font-geist-sans: "Geist", "Geist Fallback";
+}
+
+
+/* [next]/internal/font/google/geist_mono_68a01160.module.css [app-client] (css) */
+@font-face {
+  font-family: Geist Mono;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../media/or3nQ6H_1_WfwkMZI_qYFrkdmhHkjkotbA-s.e32db976.woff2") format("woff2");
+  unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: Geist Mono;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../media/or3nQ6H_1_WfwkMZI_qYFrcdmhHkjko-s.p.be19f591.woff2") format("woff2");
+  unicode-range: U+??, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Geist Mono Fallback;
+  src: local(Arial);
+  ascent-override: 74.67%;
+  descent-override: 21.92%;
+  line-gap-override: 0.0%;
+  size-adjust: 134.59%;
+}
+
+.geist_mono_68a01160-module__YLcDdW__className {
+  font-family: Geist Mono, Geist Mono Fallback;
+  font-style: normal;
+}
+
+.geist_mono_68a01160-module__YLcDdW__variable {
+  --font-geist-mono: "Geist Mono", "Geist Mono Fallback";
+}
+
+
+/* [project]/src/styles/colors.css [app-client] (css) */
+:root {
+  --primary-500: #7152f3;
+  --secondary-500: #a3d139;
+  --tertiary-500: #b21589;
+  --dark-500: #16151c;
+  --gray-500: #a2a1a8;
+  --light-500: #d9e1e1;
+  --white-500: #fff;
+  --primary-100: #e6e2f8;
+  --primary-200: #cec4f6;
+  --primary-300: #b2a2f9;
+  --primary-400: #9178fa;
+  --primary-600: #5d3de7;
+  --primary-700: #4f31d0;
+  --primary-800: #3517b4;
+  --primary-900: #250c92;
+  --primary-90: #7152f3e6;
+  --primary-80: #7152f3cc;
+  --primary-20: #7152f333;
+  --primary-10: #7152f31a;
+  --primary-5: #7152f30d;
+  --secondary-100: #e1f1bc;
+  --secondary-200: #cee993;
+  --secondary-300: #bcde6b;
+  --secondary-400: #afd751;
+  --secondary-600: #97bd33;
+  --secondary-700: #88a52a;
+  --secondary-800: #798d21;
+  --secondary-900: #626615;
+  --secondary-90: #a3d139e6;
+  --secondary-80: #a3d139cc;
+  --secondary-20: #a3d13933;
+  --secondary-10: #a3d1391a;
+  --secondary-5: #a3d1390d;
+  --tertiary-100: #f0b0d9;
+  --tertiary-200: #e67bc2;
+  --tertiary-300: #d846ab;
+  --tertiary-400: #cd0d9b;
+  --tertiary-600: #af0a87;
+  --tertiary-700: #9b0982;
+  --tertiary-800: #8a087c;
+  --tertiary-900: #6c0772;
+  --tertiary-90: #b21589e6;
+  --tertiary-80: #b21589cc;
+  --tertiary-20: #b2158933;
+  --tertiary-10: #b215891a;
+  --tertiary-5: #b215890d;
+  --dark-90: #16151ce6;
+  --dark-80: #16151ccc;
+  --dark-20: #16151c33;
+  --dark-10: #16151c1a;
+  --dark-5: #16151c0d;
+  --gray-90: #a2a1a8e6;
+  --gray-80: #a2a1a8cc;
+  --gray-20: #a2a1a833;
+  --gray-10: #a2a1a81a;
+  --gray-5: #a2a1a80d;
+  --light-90: #d9e1e1e6;
+  --light-80: #d9e1e1cc;
+  --light-20: #d9e1e133;
+  --light-10: #d9e1e11a;
+  --light-5: #d9e1e10d;
+  --white-90: #ffffffe6;
+  --white-80: #fffc;
+  --white-20: #fff3;
+  --white-10: #ffffff1a;
+  --white-5: #ffffff0d;
+  --color--option-1: #30be82;
+  --color--option-2: #30beb6;
+  --color--option-3: #5d30be;
+  --color--option-4: #304fbe;
+}
+
+
+/*# sourceMappingURL=%5Broot-of-the-server%5D__637a0071._.css.map*/

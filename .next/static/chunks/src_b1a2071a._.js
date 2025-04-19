@@ -44,11 +44,11 @@ function useResponsive() {
     const { width, height } = useWindowSize();
     const h = (value)=>{
         const divide = mHeight / value;
-        return height / divide;
+        return Math.round(height / divide);
     };
     const w = (value)=>{
         const divide = mWidth / value;
-        return width / divide;
+        return Math.round(width / divide);
     };
     const t = (value)=>{
         return (h(value) + w(value)) / 2;
@@ -77,35 +77,43 @@ __turbopack_context__.s({
     "CommonButton": (()=>CommonButton)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/responsive_helper.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
 ;
+;
+;
 function CommonButton(props) {
     _s();
     const { w, h, t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useResponsive"])();
-    const { textColor = "var(--white-500)", fontSize = t(16), width = w(445), height = h(56), text = "Click Me", backgroundColor = "var(--primary-500)", borderRadius = 8, onClick } = props;
+    const { textColor = "var(--white-500)", fontSize = t(16), width = w(445), maxWidth = "100%", height = h(56), text = "Click Me", backgroundColor = "var(--primary-500)", backgroundHoverColor = "var(--primary-700)", borderRadius = 8, onClick } = props;
+    const [buttonHover, setButtonHover] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
         style: {
             color: textColor,
             width: `${width}px`,
+            maxWidth: maxWidth,
             height: `${height}px`,
-            backgroundColor: backgroundColor,
+            backgroundColor: buttonHover ? backgroundHoverColor : backgroundColor,
             borderRadius: borderRadius,
             border: "none",
             fontSize: `${fontSize}px`,
-            cursor: "pointer"
+            cursor: "pointer",
+            transition: "all 0.1s ease"
         },
         onClick: onClick,
+        onMouseEnter: ()=>setButtonHover(true),
+        onMouseLeave: ()=>setButtonHover(false),
         children: text
     }, void 0, false, {
         fileName: "[project]/src/compenents/common_button.tsx",
-        lineNumber: 30,
+        lineNumber: 39,
         columnNumber: 5
     }, this);
 }
-_s(CommonButton, "fJhdoeleF2MTB2zxVQXJg3GdWxg=", false, function() {
+_s(CommonButton, "YQyu5Bi1GVwzklpFEnS1tsDfbYY=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useResponsive"]
     ];
@@ -198,24 +206,29 @@ __turbopack_context__.s({
     "CommonTextField": (()=>CommonTextField)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/responsive_helper.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
 ;
+;
+;
 function CommonTextField(props) {
     _s();
     const { w, h, t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useResponsive"])();
-    const { textColor = "var(--dark-500)", fontSize = t(16), width = w(445), height = h(55), placeholder = "Search", type = "text", backgroundColor = "var(--white-500)", borderRadius = 10, value = "", onChange = ()=>{} } = props;
+    const { textColor = "var(--dark-500)", fontSize = t(16), fontWeight = 500, width = w(445), maxWidth = "100%", height = h(55), placeholder = "Search", type = "text", backgroundColor = "var(--white-500)", borderRadius = 10, border = "1px solid var(--primary-500)", value = "", onChange = ()=>{} } = props;
     const paddingHorizontal = w(16);
+    const [inputFocus, setInputFocus] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         style: {
             position: "relative",
             width: `${width}px`,
+            maxWidth: maxWidth,
             height: `${height}px`,
             backgroundColor,
             borderRadius,
-            border: "solid var(--primary-500) 1px",
+            border: border,
             padding: `0 ${paddingHorizontal}px`,
             display: "flex",
             alignItems: "center"
@@ -224,46 +237,49 @@ function CommonTextField(props) {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                 value: value,
                 onChange: (e)=>onChange(e.target.value),
+                onFocus: ()=>setInputFocus(true),
+                onBlur: ()=>setInputFocus(false),
                 type: type,
                 style: {
                     width: "100%",
                     height: "100%",
-                    border: "none",
-                    outline: "none",
                     fontSize: `${fontSize}px`,
                     backgroundColor: "transparent",
                     color: textColor,
-                    paddingTop: h(10)
+                    paddingTop: h(10),
+                    paddingBottom: h(10)
                 }
             }, void 0, false, {
                 fileName: "[project]/src/compenents/common_textfield.tsx",
-                lineNumber: 49,
+                lineNumber: 58,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                 style: {
                     position: "absolute",
                     left: `${paddingHorizontal}px`,
-                    top: value ? `${h(4)}px` : `${height / 2 - fontSize / 2}px`,
-                    fontSize: value ? `${t(10)}px` : `${fontSize}px`,
+                    top: "50%",
+                    fontWeight: fontWeight,
+                    transform: value || inputFocus ? "translate(-2%, -150%)" : "translateY(-50%)",
+                    fontSize: value || inputFocus ? `${t(11)}px` : `${fontSize}px`,
                     color: "var(--primary-500)",
                     pointerEvents: "none",
-                    transition: "all 0.2s ease"
+                    transition: "all 0.25s ease"
                 },
                 children: placeholder
             }, void 0, false, {
                 fileName: "[project]/src/compenents/common_textfield.tsx",
-                lineNumber: 64,
+                lineNumber: 74,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/compenents/common_textfield.tsx",
-        lineNumber: 36,
+        lineNumber: 44,
         columnNumber: 5
     }, this);
 }
-_s(CommonTextField, "fJhdoeleF2MTB2zxVQXJg3GdWxg=", false, function() {
+_s(CommonTextField, "sin022+wcTH4tJ8O4B59juBL7RQ=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useResponsive"]
     ];
@@ -437,6 +453,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 function Auth() {
     _s();
     const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
@@ -480,31 +497,31 @@ function Auth() {
             }
         } else {}
     };
-    const { w, h, t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useResponsive"])();
-    const styles = {
+    const { w, h, t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useResponsive"])(), styles = {
         container: {
-            width: "100%",
-            height: "100vh",
-            padding: "40px",
-            backgroundColor: "var(--dark-500)",
-            border: "1px solid red"
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%"
         },
         card: {
-            margin: "auto",
-            width: `${w(440)}px`,
-            height: `${h(480)}px`,
-            backgroundColor: "var(--white-500)",
+            width: `${w(420)}px`,
+            height: `fitContent`,
+            // background: "linear-gradient(145deg, #141319, #18161e)",
+            // boxShadow: "19px 19px 20px #0e0e12, -19px -19px 20px #1e1c26",
+            background: "linear-gradient(145deg, #1d1920, #221e27)",
+            boxShadow: "20px 20px 22px #100e12, -20px -20px 22px #100e12",
             borderRadius: "20px",
-            boxShadow: "0px 54.999996185302734px 109.99999237060547px rgba(0, 0, 0, 0.4), 0px 54.999996185302734px 109.99999237060547px rgba(0, 0, 0, 0.5)",
+            padding: "20px",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            alignContent: "center"
+            justifyContent: "center"
         },
         title: {
             ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$commont_text$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CommonText"].header4Bold,
-            color: "var(--dark-500)",
-            marginBottom: "8px"
+            color: "var(--white-500)",
+            height: "fitContent"
         },
         subtitle: {
             ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$commont_text$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CommonText"].body2Regular,
@@ -512,9 +529,11 @@ function Auth() {
             marginBottom: "24px"
         },
         inputGroup: {
+            width: "95%",
             marginBottom: "16px"
         },
         buttonGroup: {
+            width: "95%",
             marginTop: "8px"
         },
         footer: {
@@ -523,16 +542,21 @@ function Auth() {
         },
         footerText: {
             ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$commont_text$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CommonText"].body2Regular,
-            color: "#555555"
+            color: "var(--gray-500)"
+        },
+        forgotText: {
+            ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$commont_text$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CommonText"].body2Regular,
+            color: "var(--color--option-2)",
+            textAlign: "right"
         },
         footerLink: {
-            color: "#007bff",
-            textDecoration: "none",
+            color: "var(--color--option-2)",
             fontWeight: 500
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         style: styles.container,
+        className: "min-h-screen",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             style: styles.card,
             children: [
@@ -541,7 +565,7 @@ function Auth() {
                     children: "Login with Email"
                 }, void 0, false, {
                     fileName: "[project]/src/app/auth/page.tsx",
-                    lineNumber: 118,
+                    lineNumber: 126,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -549,41 +573,77 @@ function Auth() {
                     children: "Please enter your credentials to continue."
                 }, void 0, false, {
                     fileName: "[project]/src/app/auth/page.tsx",
-                    lineNumber: 119,
+                    lineNumber: 127,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     style: styles.inputGroup,
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$compenents$2f$common_textfield$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CommonTextField"], {
+                        textColor: "var(--dark-90)",
+                        border: "2px solid var(--primary-500)",
                         placeholder: "Email",
                         type: "email",
                         value: formData.email,
                         onChange: (val)=>handleChange("email", val)
                     }, void 0, false, {
                         fileName: "[project]/src/app/auth/page.tsx",
-                        lineNumber: 122,
+                        lineNumber: 130,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/auth/page.tsx",
-                    lineNumber: 121,
+                    lineNumber: 129,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    style: styles.inputGroup,
+                    style: {
+                        ...styles.inputGroup,
+                        marginBottom: "4px"
+                    },
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$compenents$2f$common_textfield$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CommonTextField"], {
+                        textColor: "var(--dark-90)",
+                        border: "2px solid var(--primary-500)",
                         placeholder: "Password",
                         type: "password",
                         value: formData.password,
                         onChange: (val)=>handleChange("password", val)
                     }, void 0, false, {
                         fileName: "[project]/src/app/auth/page.tsx",
-                        lineNumber: 125,
+                        lineNumber: 133,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/auth/page.tsx",
-                    lineNumber: 124,
+                    lineNumber: 132,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        marginBottom: "16px",
+                        width: "95%"
+                    },
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        style: styles.forgotText,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                style: styles.forgotText,
+                                className: "hoverUnderline",
+                                children: "Forgot Password"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/auth/page.tsx",
+                                lineNumber: 138,
+                                columnNumber: 23
+                            }, this),
+                            "?"
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/auth/page.tsx",
+                        lineNumber: 137,
+                        columnNumber: 19
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/src/app/auth/page.tsx",
+                    lineNumber: 136,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -593,12 +653,12 @@ function Auth() {
                         onClick: ()=>handleSubmit(true)
                     }, void 0, false, {
                         fileName: "[project]/src/app/auth/page.tsx",
-                        lineNumber: 129,
+                        lineNumber: 143,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/auth/page.tsx",
-                    lineNumber: 128,
+                    lineNumber: 142,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -608,40 +668,41 @@ function Auth() {
                         children: [
                             "Don't have an account?",
                             " ",
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                href: "#",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "hoverUnderline",
                                 style: styles.footerLink,
                                 children: "Sign up"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/auth/page.tsx",
-                                lineNumber: 135,
-                                columnNumber: 21
+                                lineNumber: 150,
+                                columnNumber: 23
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/auth/page.tsx",
-                        lineNumber: 133,
-                        columnNumber: 17
+                        lineNumber: 148,
+                        columnNumber: 19
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/auth/page.tsx",
-                    lineNumber: 132,
+                    lineNumber: 147,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/auth/page.tsx",
-            lineNumber: 117,
+            lineNumber: 125,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/auth/page.tsx",
-        lineNumber: 116,
+        lineNumber: 124,
         columnNumber: 9
     }, this);
 }
-_s(Auth, "gGrEdqZdy+ARY+N/M3wrOwInx0Y=", false, function() {
+_s(Auth, "OeOwRKf5Ei87xiYuyZmkUJJCo+M=", false, function() {
     return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useResponsive"],
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useResponsive"]
     ];
 });

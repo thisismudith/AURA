@@ -26,17 +26,18 @@ function useWindowSize() {
   return size;
 }
 
+
 export function useResponsive() {
   const { width, height } = useWindowSize();
 
   const h = (value: number) => {
     const divide = mHeight / value;
-    return height / divide;
+    return Math.round(height / divide);
   };
 
   const w = (value: number) => {
     const divide = mWidth / value;
-    return width / divide;
+    return Math.round(width / divide);
   };
 
   const t = (value: number) => {

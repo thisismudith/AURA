@@ -67,22 +67,27 @@ __turbopack_context__.s({
     "CommonTextField": (()=>CommonTextField)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/responsive_helper.ts [app-ssr] (ecmascript)");
 'use client';
 ;
 ;
+;
+;
 function CommonTextField(props) {
     const { w, h, t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useResponsive"])();
-    const { textColor = "var(--dark-500)", fontSize = t(16), width = w(445), height = h(55), placeholder = "Search", type = "text", backgroundColor = "var(--white-500)", borderRadius = 10, value = "", onChange = ()=>{} } = props;
+    const { textColor = "var(--dark-500)", fontSize = t(16), width = w(445), maxWidth = "100%", height = h(55), placeholder = "Search", type = "text", backgroundColor = "var(--white-500)", borderRadius = 10, value = "", onChange = ()=>{} } = props;
     const paddingHorizontal = w(16);
+    const [inputFocus, setInputFocus] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         style: {
             position: "relative",
             width: `${width}px`,
+            maxWidth: maxWidth,
             height: `${height}px`,
             backgroundColor,
             borderRadius,
-            border: "solid var(--primary-500) 1px",
+            border: "1px solid var(--primary-500)",
             padding: `0 ${paddingHorizontal}px`,
             display: "flex",
             alignItems: "center"
@@ -91,42 +96,44 @@ function CommonTextField(props) {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                 value: value,
                 onChange: (e)=>onChange(e.target.value),
+                onFocus: ()=>setInputFocus(true),
+                onBlur: ()=>setInputFocus(false),
                 type: type,
                 style: {
                     width: "100%",
                     height: "100%",
-                    border: "none",
-                    outline: "none",
                     fontSize: `${fontSize}px`,
                     backgroundColor: "transparent",
                     color: textColor,
-                    paddingTop: h(10)
+                    paddingTop: h(10),
+                    paddingBottom: h(10)
                 }
             }, void 0, false, {
                 fileName: "[project]/src/compenents/common_textfield.tsx",
-                lineNumber: 49,
+                lineNumber: 54,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                 style: {
                     position: "absolute",
                     left: `${paddingHorizontal}px`,
-                    top: value ? `${h(4)}px` : `${height / 2 - fontSize / 2}px`,
-                    fontSize: value ? `${t(10)}px` : `${fontSize}px`,
+                    top: "50%",
+                    transform: value || inputFocus ? "translate(-3%, -150%)" : "translateY(-50%)",
+                    fontSize: value || inputFocus ? `${t(11)}px` : `${fontSize}px`,
                     color: "var(--primary-500)",
                     pointerEvents: "none",
-                    transition: "all 0.2s ease"
+                    transition: "all 0.25s ease"
                 },
                 children: placeholder
             }, void 0, false, {
                 fileName: "[project]/src/compenents/common_textfield.tsx",
-                lineNumber: 64,
+                lineNumber: 70,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/compenents/common_textfield.tsx",
-        lineNumber: 36,
+        lineNumber: 40,
         columnNumber: 5
     }, this);
 }
