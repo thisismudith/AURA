@@ -1,0 +1,26 @@
+/* Text-size styles */
+/* base size: header-1--bold (80px) */
+:root{
+    --header-1--bold: 80;
+    --header-1--regular: 80;
+    --header-2--bold: 60;
+    --header-1--regular: 60;
+    --header-3--bold: 40;
+    --header-3--regular: 40;
+    --header-4--bold: 30;
+    --header-4--regular: 30;
+    --header-5--bold: 24;
+    --header-5--regular: 24;
+    --header-6--bold: 20;
+    --header-6--regular: 20;
+    --header-7--bold: 18;
+    --header-7--regular: 18;
+    --body-1--bold: 16;
+    --body-1--regular: 16;
+    --body-2--bold: 14;
+    --body-2--regular: 14;
+    --caption--bold: 12;
+    --caption--regular: 12;
+    --label--bold: 11;
+    --label--regular: 11;
+}
