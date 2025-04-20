@@ -94,6 +94,8 @@ function CommonButton(props) {
         onClick: onClick,
         onMouseEnter: ()=>setButtonHover(true),
         onMouseLeave: ()=>setButtonHover(false),
+        onFocus: ()=>setButtonHover(true),
+        onBlur: ()=>setButtonHover(false),
         children: text
     }, void 0, false, {
         fileName: "[project]/src/compenents/common_button.tsx",

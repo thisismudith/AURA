@@ -52,6 +52,8 @@ export function CommonButton(props: {
       onClick={onClick}
       onMouseEnter={() => setButtonHover(true)}
       onMouseLeave={() => setButtonHover(false)}
+      onFocus={() => setButtonHover(true)}
+      onBlur={() => setButtonHover(false)}
 
     >
       {text}
