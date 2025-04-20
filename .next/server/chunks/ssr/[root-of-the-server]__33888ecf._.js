@@ -186,7 +186,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_h
 ;
 function CommonTextField(props) {
     const { w, h, t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useResponsive"])();
-    const { textColor = "var(--dark-500)", fontSize = t(16), fontWeight = 500, width = w(445), maxWidth = "100%", height = h(55), placeholder = "Search", type = "text", backgroundColor = "var(--white-500)", borderRadius = 10, border = "1px solid var(--primary-500)", value = "", onChange = ()=>{} } = props;
+    const { textColor = "var(--white-500)", fontSize = t(16), fontWeight = 500, width = w(445), maxWidth = "100%", height = h(55), placeholder = "Search", type = "text", backgroundColor = "transparent", borderRadius = 10, border = "1px solid var(--primary-500)", value = "", onChange = ()=>{}, prefixIcon, suffixIcon, onPrefixClick, onSuffixClick } = props;
     const paddingHorizontal = w(16);
     const [inputFocus, setInputFocus] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -203,6 +203,21 @@ function CommonTextField(props) {
             alignItems: "center"
         },
         children: [
+            prefixIcon && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: "absolute",
+                    left: `${paddingHorizontal / 2}px`,
+                    cursor: onPrefixClick ? "pointer" : "default",
+                    zIndex: 1,
+                    maxWidth: paddingHorizontal
+                },
+                onClick: onPrefixClick,
+                children: prefixIcon
+            }, void 0, false, {
+                fileName: "[project]/src/compenents/common_textfield.tsx",
+                lineNumber: 70,
+                columnNumber: 9
+            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                 value: value,
                 onChange: (e)=>onChange(e.target.value),
@@ -216,17 +231,19 @@ function CommonTextField(props) {
                     backgroundColor: "transparent",
                     color: textColor,
                     paddingTop: h(10),
-                    paddingBottom: h(10)
+                    paddingBottom: h(10),
+                    paddingLeft: prefixIcon ? paddingHorizontal : 0,
+                    paddingRight: suffixIcon ? paddingHorizontal : 0
                 }
             }, void 0, false, {
                 fileName: "[project]/src/compenents/common_textfield.tsx",
-                lineNumber: 58,
+                lineNumber: 84,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                 style: {
                     position: "absolute",
-                    left: `${paddingHorizontal}px`,
+                    left: `${paddingHorizontal + (prefixIcon ? paddingHorizontal : 0)}px`,
                     top: "50%",
                     fontWeight: fontWeight,
                     transform: value || inputFocus ? "translate(-2%, -150%)" : "translateY(-50%)",
@@ -238,13 +255,28 @@ function CommonTextField(props) {
                 children: placeholder
             }, void 0, false, {
                 fileName: "[project]/src/compenents/common_textfield.tsx",
-                lineNumber: 74,
+                lineNumber: 103,
                 columnNumber: 7
+            }, this),
+            suffixIcon && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: "absolute",
+                    right: `${paddingHorizontal}px`,
+                    cursor: onSuffixClick ? "pointer" : "default",
+                    zIndex: 1,
+                    maxWidth: paddingHorizontal
+                },
+                onClick: onSuffixClick,
+                children: suffixIcon
+            }, void 0, false, {
+                fileName: "[project]/src/compenents/common_textfield.tsx",
+                lineNumber: 120,
+                columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/compenents/common_textfield.tsx",
-        lineNumber: 44,
+        lineNumber: 55,
         columnNumber: 5
     }, this);
 }
@@ -395,7 +427,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$compenents$2f$common_
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$regex$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/regex.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/responsive_helper.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$commont_text$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/styles/commont_text.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$EmailOutlined$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@mui/icons-material/esm/EmailOutlined.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$LockOutline$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@mui/icons-material/esm/LockOutline.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$RemoveRedEyeOutlined$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@mui/icons-material/esm/RemoveRedEyeOutlined.js [app-ssr] (ecmascript)");
 "use client";
+;
+;
+;
 ;
 ;
 ;
@@ -470,7 +508,7 @@ function Auth() {
         },
         title: {
             ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$commont_text$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommonText"].header4Bold,
-            color: "var(--white-500)",
+            color: "var(--black-500)",
             height: "fitContent"
         },
         subtitle: {
@@ -496,11 +534,11 @@ function Auth() {
         },
         forgotText: {
             ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$styles$2f$commont_text$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommonText"].body2Regular,
-            color: "var(--color--option-2)",
+            color: "var(--primary-500)",
             textAlign: "right"
         },
         footerLink: {
-            color: "var(--color--option-2)",
+            color: "var(--primary-500)",
             fontWeight: 500
         }
     };
@@ -515,7 +553,7 @@ function Auth() {
                     children: "Login with Email"
                 }, void 0, false, {
                     fileName: "[project]/src/app/auth/page.tsx",
-                    lineNumber: 126,
+                    lineNumber: 130,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -523,13 +561,22 @@ function Auth() {
                     children: "Please enter your credentials to continue."
                 }, void 0, false, {
                     fileName: "[project]/src/app/auth/page.tsx",
-                    lineNumber: 127,
+                    lineNumber: 131,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     style: styles.inputGroup,
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$compenents$2f$common_textfield$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommonTextField"], {
-                        textColor: "var(--dark-90)",
+                        prefixIcon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$EmailOutlined$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                            fontSize: "small",
+                            sx: {
+                                color: 'var(--white-500)'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/auth/page.tsx",
+                            lineNumber: 134,
+                            columnNumber: 50
+                        }, void 0),
                         border: "2px solid var(--primary-500)",
                         placeholder: "Email",
                         type: "email",
@@ -537,12 +584,12 @@ function Auth() {
                         onChange: (val)=>handleChange("email", val)
                     }, void 0, false, {
                         fileName: "[project]/src/app/auth/page.tsx",
-                        lineNumber: 130,
+                        lineNumber: 134,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/auth/page.tsx",
-                    lineNumber: 129,
+                    lineNumber: 133,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -551,7 +598,26 @@ function Auth() {
                         marginBottom: "4px"
                     },
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$compenents$2f$common_textfield$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommonTextField"], {
-                        textColor: "var(--dark-90)",
+                        prefixIcon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$LockOutline$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                            fontSize: "small",
+                            sx: {
+                                color: 'var(--white-500)'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/auth/page.tsx",
+                            lineNumber: 137,
+                            columnNumber: 50
+                        }, void 0),
+                        suffixIcon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$RemoveRedEyeOutlined$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                            fontSize: "small",
+                            sx: {
+                                color: 'var(--white-500)'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/auth/page.tsx",
+                            lineNumber: 137,
+                            columnNumber: 141
+                        }, void 0),
                         border: "2px solid var(--primary-500)",
                         placeholder: "Password",
                         type: "password",
@@ -559,12 +625,12 @@ function Auth() {
                         onChange: (val)=>handleChange("password", val)
                     }, void 0, false, {
                         fileName: "[project]/src/app/auth/page.tsx",
-                        lineNumber: 133,
+                        lineNumber: 137,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/auth/page.tsx",
-                    lineNumber: 132,
+                    lineNumber: 136,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -581,19 +647,19 @@ function Auth() {
                                 children: "Forgot Password"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/auth/page.tsx",
-                                lineNumber: 138,
+                                lineNumber: 142,
                                 columnNumber: 23
                             }, this),
                             "?"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/auth/page.tsx",
-                        lineNumber: 137,
+                        lineNumber: 141,
                         columnNumber: 19
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/auth/page.tsx",
-                    lineNumber: 136,
+                    lineNumber: 140,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -603,12 +669,12 @@ function Auth() {
                         onClick: ()=>handleSubmit(true)
                     }, void 0, false, {
                         fileName: "[project]/src/app/auth/page.tsx",
-                        lineNumber: 143,
+                        lineNumber: 147,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/auth/page.tsx",
-                    lineNumber: 142,
+                    lineNumber: 146,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -624,29 +690,29 @@ function Auth() {
                                 children: "Sign up"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/auth/page.tsx",
-                                lineNumber: 150,
+                                lineNumber: 154,
                                 columnNumber: 23
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/auth/page.tsx",
-                        lineNumber: 148,
+                        lineNumber: 152,
                         columnNumber: 19
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/auth/page.tsx",
-                    lineNumber: 147,
+                    lineNumber: 151,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/auth/page.tsx",
-            lineNumber: 125,
+            lineNumber: 129,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/auth/page.tsx",
-        lineNumber: 124,
+        lineNumber: 128,
         columnNumber: 9
     }, this);
 }

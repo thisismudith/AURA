@@ -4,6 +4,9 @@ import "@/styles/normalize.css";
 import { useState } from "react";
 import { useResponsive } from "../utils/responsive_helper";
 
+
+
+
 export function CommonTextField(props: {
   textColor?: string;
   fontSize?: number;
@@ -17,24 +20,32 @@ export function CommonTextField(props: {
   borderRadius?: number;
   border?: string;
   value?: string;
+  prefixIcon?: React.ReactNode;
+  suffixIcon?: React.ReactNode;
   onChange?: (value: string) => void;
+  onPrefixClick?: () => void;
+  onSuffixClick?: () => void;
 }) {
   const { w, h, t } = useResponsive();
 
   const {
-    textColor = "var(--dark-500)",
+    textColor = "var(--white-500)",
     fontSize = t(16),
     fontWeight = 500,
     width = w(445),
     maxWidth = "100%",
     height = h(55),
     placeholder = "Search",
-    type="text",
-    backgroundColor = "var(--white-500)",
+    type = "text",
+    backgroundColor = "transparent",
     borderRadius = 10,
     border = "1px solid var(--primary-500)",
     value = "",
     onChange = () => {},
+    prefixIcon,
+    suffixIcon,
+    onPrefixClick,
+    onSuffixClick,
   } = props;
 
   const paddingHorizontal = w(16);
@@ -55,6 +66,21 @@ export function CommonTextField(props: {
         alignItems: "center",
       }}
     >
+      {prefixIcon && (
+        <div
+          style={{
+            position: "absolute",
+            left: `${paddingHorizontal / 2}px`,
+            cursor: onPrefixClick ? "pointer" : "default",
+            zIndex: 1,
+            maxWidth: paddingHorizontal,
+          }}
+          onClick={onPrefixClick}
+        >
+{prefixIcon}
+        </div>
+      )}
+
       <input
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -69,12 +95,15 @@ export function CommonTextField(props: {
           color: textColor,
           paddingTop: h(10),
           paddingBottom: h(10),
+          paddingLeft: prefixIcon ? paddingHorizontal : 0,
+          paddingRight: suffixIcon ? paddingHorizontal : 0,
         }}
       />
+
       <label
         style={{
           position: "absolute",
-          left: `${paddingHorizontal}px`,
+          left: `${paddingHorizontal + (prefixIcon ? paddingHorizontal : 0)}px`,
           top: "50%",
           fontWeight: fontWeight,
           transform: (value || inputFocus) ? "translate(-2%, -150%)" : "translateY(-50%)",
@@ -86,6 +115,21 @@ export function CommonTextField(props: {
       >
         {placeholder}
       </label>
+
+      {suffixIcon && (
+        <div
+          style={{
+            position: "absolute",
+            right: `${paddingHorizontal}px`,
+            cursor: onSuffixClick ? "pointer" : "default",
+            zIndex: 1,
+            maxWidth: paddingHorizontal,
+          }}
+          onClick={onSuffixClick}
+        >
+          {suffixIcon}
+        </div>
+      )}
     </div>
   );
 }

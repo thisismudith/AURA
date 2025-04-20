@@ -8,6 +8,10 @@ import { CommonTextField } from "@/compenents/common_textfield";
 import { isValidEmail, isValidPassword} from "@/utils/regex";
 import { useResponsive } from "../../utils/responsive_helper";
 import { CommonText } from "../../styles/commont_text";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, far } from '@fortawesome/free-regular-svg-icons';
+import { Icon } from '@mui/material';
+import { EmailOutlined, LockOutline, RemoveRedEyeOutlined } from '@mui/icons-material';
 
 export default function Auth(){
     const [formData, setFormData] = useState({
@@ -84,7 +88,7 @@ export default function Auth(){
         },
         title: { 
           ...CommonText.header4Bold,
-          color: "var(--white-500)",
+          color: "var(--black-500)",
           height: "fitContent",
         },
         subtitle: {
@@ -110,11 +114,11 @@ export default function Auth(){
         },
         forgotText: {
           ...CommonText.body2Regular,
-          color: "var(--color--option-2)",
+          color: "var(--primary-500)",
           textAlign: "right",
         },
         footerLink: { 
-          color: "var(--color--option-2)",
+          color: "var(--primary-500)",
           fontWeight: 500,
         },
       };
@@ -127,10 +131,10 @@ export default function Auth(){
                 <p style={styles.subtitle}>Please enter your credentials to continue.</p>
 
                 <div style={styles.inputGroup}>
-                    <CommonTextField textColor="var(--dark-90)" border="2px solid var(--primary-500)" placeholder="Email" type="email" value={formData.email} onChange={(val) => handleChange("email", val)} />
+                    <CommonTextField prefixIcon={<EmailOutlined fontSize='small' sx={{color: 'var(--white-500)'}}></EmailOutlined>} border="2px solid var(--primary-500)" placeholder="Email" type="email" value={formData.email} onChange={(val) => handleChange("email", val)} />
                 </div>
                 <div style={ {...styles.inputGroup, marginBottom: "4px"}}>
-                    <CommonTextField textColor="var(--dark-90)" border="2px solid var(--primary-500)" placeholder="Password" type="password" value={formData.password} onChange={(val) => handleChange("password", val)} />
+                    <CommonTextField prefixIcon={<LockOutline fontSize='small' sx={{color: 'var(--white-500)'}}></LockOutline>} suffixIcon={<RemoveRedEyeOutlined fontSize='small' sx={{color: 'var(--white-500)'}}></RemoveRedEyeOutlined>} border="2px solid var(--primary-500)" placeholder="Password" type="password" value={formData.password} onChange={(val) => handleChange("password", val)} />
                 </div>
                 
                 <div style={{marginBottom: "16px", width: "95%"}}>
