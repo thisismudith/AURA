@@ -8,10 +8,8 @@ import { CommonTextField } from "@/compenents/common_textfield";
 import { isValidEmail, isValidPassword} from "@/utils/regex";
 import { useResponsive } from "../../utils/responsive_helper";
 import { CommonText } from "../../styles/commont_text";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, far } from '@fortawesome/free-regular-svg-icons';
 import { Icon } from '@mui/material';
-import { EmailOutlined, LockOutline, RemoveRedEyeOutlined } from '@mui/icons-material';
+import { EmailOutlined, LockOutline, RemoveRedEyeOutlined, VisibilityOffOutlined } from '@mui/icons-material';
 
 export default function Auth(){
     const [formData, setFormData] = useState({
@@ -31,23 +29,26 @@ export default function Auth(){
       const handleSubmit = (is_logging_in: boolean = true) => {
         // User Login 
         if (is_logging_in){
+          const alertMessage = document.getElementById("alertMessage") as HTMLParagraphElement;
             if (formData.email === "" || formData.password === "") {
-                alert("Please fill in all fields");
+                alertMessage.innerHTML = "Please fill in all fields";
                 return;
             }
-            if (!isValidEmail(formData.email)) alert("Please enter a valid email address");
-            else if (!isValidPassword(formData.password)) alert("Please enter a valid password");
+            if (!isValidEmail(formData.email)) alertMessage.innerHTML = "Please enter a valid email address";
+            else if (!isValidPassword(formData.password)){
+              alertMessage.innerHTML = "Password must be at least 8 and contain one of all: capital letter, small letter, digit and special character.";
+            }
             else{
                 login(formData.email, formData.password).then((res) => {
                     if (res) {
-                        alert("Login successful");
+                        alertMessage.innerHTML = "&nbsp;";
                     } else {
-                        alert("Login failed");
+                        alertMessage.innerHTML = "Login failed";
                     }
                 }
                 ).catch((err) => {
                     if (err.code == 409){
-                        alert("A user with this email already exists. Login instead.");
+                        alertMessage.innerHTML = "A user with this email already exists. Login instead.";
                         return;
                     }
                     if (err.code == 401){
@@ -105,7 +106,7 @@ export default function Auth(){
           marginTop: "8px",
         },
         footer: {
-          marginTop: "24px",
+          marginTop: "18px",
           textAlign: "center",
         },
         footerText: {
@@ -131,10 +132,32 @@ export default function Auth(){
                 <p style={styles.subtitle}>Please enter your credentials to continue.</p>
 
                 <div style={styles.inputGroup}>
-                    <CommonTextField prefixIcon={<EmailOutlined fontSize='small' sx={{color: 'var(--white-500)'}}></EmailOutlined>} border="2px solid var(--primary-500)" placeholder="Email" type="email" value={formData.email} onChange={(val) => handleChange("email", val)} />
+                    <CommonTextField
+                        prefixIcon={
+                          <EmailOutlined fontSize='small' sx={{color: 'var(--white-500)', maxWidth: "100%", display: "flex"}}></EmailOutlined>
+                        }
+                        border="2px solid var(--primary-500)" placeholder="Email" type="email"
+                        value={formData.email} onChange={(val) => handleChange("email", val)}
+                    />
                 </div>
                 <div style={ {...styles.inputGroup, marginBottom: "4px"}}>
-                    <CommonTextField prefixIcon={<LockOutline fontSize='small' sx={{color: 'var(--white-500)'}}></LockOutline>} suffixIcon={<RemoveRedEyeOutlined fontSize='small' sx={{color: 'var(--white-500)'}}></RemoveRedEyeOutlined>} border="2px solid var(--primary-500)" placeholder="Password" type="password" value={formData.password} onChange={(val) => handleChange("password", val)} />
+                  <CommonTextField 
+                        prefixIcon={
+                          <LockOutline fontSize='small' sx={{color: 'var(--white-500)', maxWidth: "100%", display: "flex"}}></LockOutline>
+                        }
+                        suffixIcon={
+                          <div>
+                            <VisibilityOffOutlined id="showPass" fontSize='small' sx={{color: 'var(--white-500)', maxWidth: "100%"}}></VisibilityOffOutlined>
+                            <RemoveRedEyeOutlined className="hidden" id="hidePass" fontSize='small' sx={{color: 'var(--white-500)', maxWidth: "100%"}}></RemoveRedEyeOutlined>
+                          </div>
+                        }
+                        border="2px solid var(--primary-500)" placeholder="Password" type="password"
+                        value={formData.password} onChange={(val) => handleChange("password", val)}
+                        onSuffixClick={() => {
+                          document.getElementById("showPass")?.classList.toggle("hidden");
+                          document.getElementById("hidePass")?.classList.toggle("hidden");
+                        }}
+                  />
                 </div>
                 
                 <div style={{marginBottom: "16px", width: "95%"}}>
@@ -145,10 +168,11 @@ export default function Auth(){
 
                 <div style={styles.buttonGroup}>
                     <CommonButton text="Login" onClick={() => handleSubmit(true)} />
+                      <p id="alertMessage" style={{color: "var(--color--option-2)", fontSize: "14px", width: "100%", padding: "0 2px", textAlign: "center"}}>&nbsp;</p>
                 </div>
 
 
-                <div style={styles.footer}>
+                <div style={styles.footer} id="footer">
                   <p style={styles.footerText}>
                       Don't have an account?{" "}
                       <span className="hoverUnderline" style={styles.footerLink}>

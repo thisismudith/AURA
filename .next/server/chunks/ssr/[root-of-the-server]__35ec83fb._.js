@@ -69,16 +69,14 @@ __turbopack_context__.s({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/responsive_helper.ts [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$fortawesome$2f$react$2d$fontawesome$2f$index$2e$es$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@fortawesome/react-fontawesome/index.es.js [app-ssr] (ecmascript)");
 'use client';
-;
 ;
 ;
 ;
 ;
 function CommonTextField(props) {
     const { w, h, t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$responsive_helper$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useResponsive"])();
-    const { textColor = "var(--white-500)", fontSize = t(16), fontWeight = 500, width = w(445), maxWidth = "100%", height = h(55), placeholder = "Search", type = "text", backgroundColor = "transparent", borderRadius = 10, border = "1px solid var(--primary-500)", value = "", onChange = ()=>{}, onPrefixClick, onSuffixClick } = props;
+    const { textColor = "var(--white-500)", fontSize = t(16), fontWeight = 500, width = w(445), maxWidth = "100%", height = h(55), placeholder = "Search", type = "text", backgroundColor = "transparent", borderRadius = 10, border = "1px solid var(--primary-500)", value = "", onChange = ()=>{}, prefixIcon, suffixIcon, onPrefixClick, onSuffixClick } = props;
     const paddingHorizontal = w(16);
     const [inputFocus, setInputFocus] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -95,25 +93,19 @@ function CommonTextField(props) {
             alignItems: "center"
         },
         children: [
-            onPrefixClick && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            prefixIcon && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
                     position: "absolute",
                     left: `${paddingHorizontal / 2}px`,
-                    cursor: "pointer",
-                    zIndex: 1
+                    cursor: onPrefixClick ? "pointer" : "default",
+                    zIndex: 1,
+                    maxWidth: paddingHorizontal
                 },
                 onClick: onPrefixClick,
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$fortawesome$2f$react$2d$fontawesome$2f$index$2e$es$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FontAwesomeIcon"], {
-                    icon: "envelope",
-                    color: "var(--white-500)"
-                }, void 0, false, {
-                    fileName: "[project]/src/compenents/common_textfield.tsx",
-                    lineNumber: 73,
-                    columnNumber: 11
-                }, this)
+                children: prefixIcon
             }, void 0, false, {
                 fileName: "[project]/src/compenents/common_textfield.tsx",
-                lineNumber: 64,
+                lineNumber: 70,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -130,18 +122,18 @@ function CommonTextField(props) {
                     color: textColor,
                     paddingTop: h(10),
                     paddingBottom: h(10),
-                    paddingLeft: onPrefixClick ? paddingHorizontal : 0,
-                    paddingRight: onSuffixClick ? paddingHorizontal : 0
+                    paddingLeft: prefixIcon ? paddingHorizontal : 0,
+                    paddingRight: suffixIcon ? paddingHorizontal : 0
                 }
             }, void 0, false, {
                 fileName: "[project]/src/compenents/common_textfield.tsx",
-                lineNumber: 78,
+                lineNumber: 84,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                 style: {
                     position: "absolute",
-                    left: `${paddingHorizontal * 2}px`,
+                    left: `${paddingHorizontal + (prefixIcon ? paddingHorizontal : 0)}px`,
                     top: "50%",
                     fontWeight: fontWeight,
                     transform: value || inputFocus ? "translate(-2%, -150%)" : "translateY(-50%)",
@@ -153,27 +145,28 @@ function CommonTextField(props) {
                 children: placeholder
             }, void 0, false, {
                 fileName: "[project]/src/compenents/common_textfield.tsx",
-                lineNumber: 97,
+                lineNumber: 103,
                 columnNumber: 7
             }, this),
-            onSuffixClick && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            suffixIcon && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
                     position: "absolute",
-                    right: `${paddingHorizontal / 2}px`,
-                    cursor: "pointer",
-                    zIndex: 1
+                    right: `${paddingHorizontal}px`,
+                    cursor: onSuffixClick ? "pointer" : "default",
+                    zIndex: 1,
+                    maxWidth: paddingHorizontal
                 },
                 onClick: onSuffixClick,
-                children: "❌"
+                children: suffixIcon
             }, void 0, false, {
                 fileName: "[project]/src/compenents/common_textfield.tsx",
-                lineNumber: 114,
+                lineNumber: 120,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/compenents/common_textfield.tsx",
-        lineNumber: 49,
+        lineNumber: 55,
         columnNumber: 5
     }, this);
 }

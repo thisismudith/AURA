@@ -48,7 +48,7 @@ export function CommonTextField(props: {
     onSuffixClick,
   } = props;
 
-  const paddingHorizontal = w(16);
+  const paddingHorizontal = w(18);
   const [inputFocus, setInputFocus] = useState(false);
 
   return (
@@ -70,10 +70,16 @@ export function CommonTextField(props: {
         <div
           style={{
             position: "absolute",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
             left: `${paddingHorizontal / 2}px`,
+            top: "50%",
+            transform: "translateY(-50%)",
             cursor: onPrefixClick ? "pointer" : "default",
             zIndex: 1,
-            maxWidth: paddingHorizontal,
+            maxWidth: paddingHorizontal*2,
           }}
           onClick={onPrefixClick}
         >
@@ -120,7 +126,13 @@ export function CommonTextField(props: {
         <div
           style={{
             position: "absolute",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
             right: `${paddingHorizontal}px`,
+            top: "50%",
+            transform: "translateY(-50%)",
             cursor: onSuffixClick ? "pointer" : "default",
             zIndex: 1,
             maxWidth: paddingHorizontal,
